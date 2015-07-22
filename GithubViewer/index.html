@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="githubViewer">
+<head>
+    <title>Github API User Viewer</title>
+    <script src="/Scripts/angular.js"></script>
+    <link rel="stylesheet" href="/Content/style.css" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/script.js"></script>
+</head>
+<body ng-controller="MainController">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{message}}</h1>
+                {{countdown}}
+                <form name="searchUser" ng-submit="search(username)">
+                    <fieldset>
+                        <legend>Search for a GitHub user</legend>
+                        <div class="form-group">
+                            <input class="form-control" type="search" required placeholder="Username" ng-model="username" />
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-default" type="submit" value="Search" />
+                        </div>
+                    </fieldset>
+                </form>
+
+                <p>{{ error }}</p>
+
+                <div ng-include="'userdetails.html'" ng-show="user"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
